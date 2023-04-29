@@ -17,12 +17,12 @@ class Product extends Model
         'category_id',
     ];
 
-    public function category()
+    public function category() //pripada kategoriji (jedan proizvod pripada jednoj kategoriji)
     {
         return $this->belongsTo(Category::class);
     }
 
-    public function orders()
+    public function orders()  //pripada narudžbini (jedan proizvod može biti deo više narudžbina, i imaće količinu u svakoj narudžbini kojoj pripada)
     {
         return $this->belongsToMany(Order::class)->withPivot('quantity');
     }

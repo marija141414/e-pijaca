@@ -1,13 +1,14 @@
  
 import './App.css';
-import ProductList from './ProductList';
+import Home from './Home';
+ 
  
 
 function App() {
   return (
     <div>
+        <Home></Home>
 
-      
     </div>
        
      
