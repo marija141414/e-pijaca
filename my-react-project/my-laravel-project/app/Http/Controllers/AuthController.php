@@ -51,7 +51,10 @@ class AuthController extends Controller
         }
 
         if (!Auth::attempt($request->only('email', 'password'))) {
-            return response()->json(['poruka' => 'Pogresan email ili password!']);
+            return response()->json([
+                'status'=>401,
+                'message'=>'Invalid credentials',
+            ]);
         }
 
         $user = User::where('email', $request['email'])->firstOrFail();
@@ -82,7 +85,7 @@ class AuthController extends Controller
             'id'=>$user->id
         ];
 
-        return response()->json([$response,'success'=>true ]);
+        return response()->json($response);
     }
 
 

@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AuthController;
 use App\Http\Controllers\OrderController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ReviewController;
@@ -38,10 +39,14 @@ Route::post('/reviews', [ReviewController::class, 'store']);
 Route::put('/reviews/{id}', [ReviewController::class, 'update']);
 Route::delete('/reviews/{id}', [ReviewController::class, 'destroy']);
 
+// Registracija korisnika
+Route::post('/register', [AuthController::class, 'register']);
 
+// Prijava korisnika
+Route::post('/login', [AuthController::class, 'login']);
 
 Route::group(['middleware' => ['auth:sanctum']], function () {  //obicni ulogovani korisnici
-    
+Route::post('/logout', [AuthController::class, 'logout']);
   
 });
 

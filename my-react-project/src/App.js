@@ -6,12 +6,22 @@ import Home from './Home';
 import Katalog from './Katalog';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import axios from 'axios';
-import Login from './Register';
+import Login from './Login';
 import Register from './Register';
- 
+import Navbar from './Navbar';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 function App() {
+  const [user, setUser] = useState(null);
 
+  const handleLogin = data => {
+    setUser(data);
+    console.log("HANDLE LOGIN"+data)
+  };
+
+  const handleLogout = () => {
+    setUser(null);
+  };
   const [proizvodi, setProizvodi] = useState([]);
   useEffect(() => {
     axios
@@ -31,19 +41,19 @@ function App() {
 
   return (
     <BrowserRouter>
-    <div className="App">
      
+        <Navbar user={user} onLogout={handleLogout} />
       <Routes>
         <Route path="/" element={ <Home></Home>}></Route>
         <Route path="/proizvodi" element={<Katalog proizvodi={proizvodi}></Katalog>}></Route>
         <Route path="/proizvodi/:id" element={ <DetaljiProizvoda proizvodi={proizvodi}></DetaljiProizvoda>}></Route>
-        <Route path="/login" element={ <Login></Login>}></Route>
+        <Route path="/login" element={ <Login onLogin={handleLogin}></Login>}></Route>
         <Route path="/register" element={ <Register></Register>}></Route>
 
  
       </Routes>
      
-    </div>
+     
   </BrowserRouter>
        
      

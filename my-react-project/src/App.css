@@ -37,7 +37,7 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
-    margin-top: 2rem;
+    margin: 2rem;
   }
   
   .proizvod {
@@ -178,22 +178,19 @@
   .star.filled {
     color: #f5d700;
   }
-  body {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-  }
+ 
   
   .login-container {
-    background-image: linear-gradient(to bottom right, #FFAFBD, #ffc3a0);
+    background-image: linear-gradient(to bottom right, #F8D788, #F5C36F);
     background-repeat: no-repeat;
     background-size: 100% 100%;
     border-radius: 10px;
     padding: 20px;
     width: 400px;
+    margin: 10% auto;
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
     text-align: center;
+    color: black;
   }
   
   h2 {
@@ -216,7 +213,8 @@
     display: block;
     font-size: 18px;
     margin-bottom: 5px;
-    color: #fff;
+    color: black;
+
   }
   input[type="text"],
   input[type="email"],
@@ -263,5 +261,71 @@
   
   .login-button:hover {
     background-color: #555;
+  }
+  
+.dugme-katalog{
+  background-color: #F8D788;
+  color: black;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+.dugme-katalog:hover {
+  background-color: #f5c36f;
+}
+  .navbar {
+   
+    background-color: #F8D788;
+     
+  }
+  
+  .nav-link {
+    font-weight: 500;
+    color: #212529;
+  }
+  
+  .nav-link.active {
+    color: #0d6efd;
+  }
+  
+  .btn-outline-primary {
+    border-color: #0d6efd;
+    color: #0d6efd;
+  }
+  
+  .btn-outline-primary:hover {
+    background-color: #0d6efd;
+    color: #fff;
+  }
+  
+  .navbar-brand {
+    font-weight: 600;
+  }
+  
+  .navbar-collapse {
+    justify-content: space-between;
+  }
+  
+  .navbar-nav {
+    align-items: center;
+    margin: 0;
+  }
+  
+  .navbar-nav.me-auto {
+    margin-right: auto;
+  }
+  
+  @media (max-width: 991px) {
+    .navbar-collapse {
+      justify-content: flex-start;
+    }
+  }
+  
+  @media (max-width: 767px) {
+    .navbar-nav.me-auto {
+      margin-right: 0;
+    }
   }
   
