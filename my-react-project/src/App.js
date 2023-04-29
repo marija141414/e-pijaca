@@ -6,6 +6,8 @@ import Home from './Home';
 import Katalog from './Katalog';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import axios from 'axios';
+import Login from './Register';
+import Register from './Register';
  
 
 function App() {
@@ -35,6 +37,8 @@ function App() {
         <Route path="/" element={ <Home></Home>}></Route>
         <Route path="/proizvodi" element={<Katalog proizvodi={proizvodi}></Katalog>}></Route>
         <Route path="/proizvodi/:id" element={ <DetaljiProizvoda proizvodi={proizvodi}></DetaljiProizvoda>}></Route>
+        <Route path="/login" element={ <Login></Login>}></Route>
+        <Route path="/register" element={ <Register></Register>}></Route>
 
  
       </Routes>
