@@ -83,3 +83,99 @@
     color: #f7b731;
   }
   
+
+  .detalji-proizvoda {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 30px;
+  }
+  
+  .detalji-proizvoda img {
+    max-width: 500px;
+    margin-bottom: 20px;
+  }
+  
+  .detalji-proizvoda h2 {
+    font-size: 36px;
+    margin-bottom: 10px;
+  }
+  
+  .detalji-proizvoda p {
+    font-size: 18px;
+    margin-bottom: 20px;
+  }
+  
+  .detalji-proizvoda .proizvod-info {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-bottom: 20px;
+  }
+  
+  .detalji-proizvoda .proizvod-info-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 10px;
+  }
+  
+  .detalji-proizvoda .label {
+    font-size: 20px;
+    margin-bottom: 5px;
+  }
+  
+  .detalji-proizvoda .value {
+    font-size: 24px;
+  }
+  
+  .detalji-proizvoda h3 {
+    font-size: 24px;
+    margin-bottom: 10px;
+  }
+  
+  .detalji-proizvoda .review {
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin-bottom: 20px;
+  }
+  
+  .detalji-proizvoda .review h4 {
+    font-size: 18px;
+    margin-bottom: 5px;
+  }
+  
+  .detalji-proizvoda .review p {
+    font-size: 16px;
+    margin-bottom: 10px;
+  }
+  
+  .detalji-proizvoda .review-info {
+    display: flex;
+    justify-content: space-between;
+    font-size: 16px;
+  }
+  
+  .detalji-proizvoda .review-info-item {
+    display: flex;
+    align-items: center;
+    margin-right: 10px;
+  }
+  
+  .detalji-proizvoda .review-info-item .label {
+    margin-right: 5px;
+  }
+  
+
+
+
+  .star {
+    color: #ccc;
+    font-size: 1.2em;
+    margin: 0 2px;
+  }
+  
+  .star.filled {
+    color: #f5d700;
+  }
+  
