@@ -40,14 +40,14 @@ class ProductSeeder extends Seeder
                 2.99,
             ];
             $productImages = [
-                'https://cdn.pixabay.com/photo/2017/08/14/18/11/steamed-milk-2633963_1280.jpg', 
-                'https://cdn.pixabay.com/photo/2018/09/22/13/50/bread-3696101_1280.jpg', 
-                'https://cdn.pixabay.com/photo/2018/03/21/00/14/eggs-3241286_1280.jpg', 
-                'https://cdn.pixabay.com/photo/2018/06/27/16/05/cheese-3500102_1280.jpg', 
-                'https://cdn.pixabay.com/photo/2018/04/11/22/08/juice-3318162_1280.jpg',
+                'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT6SRU5obMaQCtUqtJxr6UouLZzIDQGNRmf8wo7SB1Z_Qkv1-vFKl7rZhpFW5kGvm1K0bo&usqp=CAU',
+                'https://assets.bonappetit.com/photos/5c62e4a3e81bbf522a9579ce/16:9/w_4000,h_2250,c_limit/milk-bread.jpg',
+                'https://media.istockphoto.com/id/1028690210/photo/set-of-egg-isolated.jpg?s=612x612&w=0&k=20&c=Twc1V5iG4XmGT-_6JQ7Wqejk19D_sK6OI84sxTs8W7U=',
+                'https://media.istockphoto.com/id/1127471287/photo/cheese-on-white.jpg?s=612x612&w=0&k=20&c=m8kJAfayGrBoqKceiwGAq7SaEDrbZCyPzklYOm3_MBk=',
+                'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSqoYpBTgbOYO7OWI6juWOhRcMQA2q9safgKbYaWmmMupcOZWbt46yEy0tDqWgwtFtVb_E&usqp=CAU',
             ];
             
-            for ($i = 0; $i < count($productNames); $i++) {
+            for ($i = 0; $i < 5; $i++) {
                 Product::create([
                     'name' => $productNames[$i],
                     'description' => $productDescriptions[$i],
