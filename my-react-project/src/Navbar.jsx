@@ -29,21 +29,37 @@ const Navbar = ({ user, onLogout }) => {
         </button>
         <div className="collapse navbar-collapse" id="navbarNav">
           <ul className="navbar-nav me-auto">
-            <li className="nav-item">
-              <NavLink to="/" className="nav-link" activeClassName="active" end>Home</NavLink>
-            </li>
-            <li className="nav-item">
-              <NavLink to="/proizvodi" className="nav-link" activeClassName="active">Proizvodi</NavLink>
-            </li>
+
             {user && user.role=='admin' && (
-              <li className="nav-item">
-                <NavLink to="/admin" className="nav-link" activeClassName="active">AdminDashboard</NavLink>
-              </li>
+                <><li className="nav-item">
+                    <NavLink to="/admin" className="nav-link" activeClassName="active">AdminDashboard</NavLink>
+                    
+
+                </li>
+                <li className="nav-item">
+                <NavLink to="/admin/products" className="nav-link" activeClassName="active">Proizvodi</NavLink>
+                
+
+                </li></>
+
+
             )}
+
+            { user &&  user.role!='admin' &&
+
+                (<><li className="nav-item">
+                <NavLink to="/" className="nav-link" activeClassName="active" end>Home</NavLink>
+                </li>
+                <li className="nav-item">
+                <NavLink to="/proizvodi" className="nav-link" activeClassName="active">Proizvodi</NavLink>
+                </li></>)
+
+            }
           </ul>
           <ul className="navbar-nav">
             {user ? (
               <>
+
                 <li className="nav-item">
                   <span className="nav-link">Dobrodošli, {user.username}</span>
                 </li>

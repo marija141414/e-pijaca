@@ -11,6 +11,7 @@ import Register from './Register';
 import Navbar from './Navbar';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import AdminPage from './AdminPage';
+import ProductList from './ProductList';
 
 function App() {
   const [user, setUser] = useState(null);
@@ -47,10 +48,12 @@ function App() {
       <Routes>
         <Route path="/" element={ <Home></Home>}></Route>
         <Route path="/proizvodi" element={<Katalog proizvodi={proizvodi}></Katalog>}></Route>
+
         <Route path="/proizvodi/:id" element={ <DetaljiProizvoda proizvodi={proizvodi}></DetaljiProizvoda>}></Route>
         <Route path="/login" element={ <Login onLogin={handleLogin}></Login>}></Route>
         <Route path="/register" element={ <Register></Register>}></Route>
         <Route path="/admin" element={ <AdminPage proizvodi={proizvodi}></AdminPage>} ></Route>
+        <Route path="/admin/products" element={<ProductList products={proizvodi} setProducts={setProizvodi}></ProductList>}></Route>
  
       </Routes>
      

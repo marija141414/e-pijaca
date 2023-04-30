@@ -37,8 +37,7 @@ const AdminPage = ({proizvodi}) => {
             <th>Status</th>
             <th>User</th>
             <th>Items</th>
-            <th>Created At</th>
-            
+            <th>Created At</th> 
           </tr>
         </thead>
         <tbody>
@@ -48,12 +47,18 @@ const AdminPage = ({proizvodi}) => {
               <td>{order.status}</td>
               <td>{order.user.name}</td>
               <td>
-                {order.items.map((item, index) => (
-                     <div key={index}>{`${proizvodi[item].name}`}
-                     {console.log(item)}
-                     {console.log(proizvodi[item])}</div>
-                  
-                ))}
+                {
+                order.items? 
+                    order.items.map((item, index) => (
+                        <div key={index}>{`${proizvodi[item].name}`}
+                        {/* {console.log(item)}
+                        {console.log(proizvodi[item])} */}
+                        </div>
+                    
+                ))
+                :
+                <></>
+                }
               </td>
               <td>{new Date(order.created_at).toLocaleString()}</td>
               
