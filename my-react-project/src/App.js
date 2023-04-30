@@ -10,6 +10,7 @@ import Login from './Login';
 import Register from './Register';
 import Navbar from './Navbar';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import AdminPage from './AdminPage';
 
 function App() {
   const [user, setUser] = useState(null);
@@ -49,7 +50,7 @@ function App() {
         <Route path="/proizvodi/:id" element={ <DetaljiProizvoda proizvodi={proizvodi}></DetaljiProizvoda>}></Route>
         <Route path="/login" element={ <Login onLogin={handleLogin}></Login>}></Route>
         <Route path="/register" element={ <Register></Register>}></Route>
-
+        <Route path="/admin" element={ <AdminPage proizvodi={proizvodi}></AdminPage>} ></Route>
  
       </Routes>
      

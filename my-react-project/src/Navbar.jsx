@@ -35,7 +35,7 @@ const Navbar = ({ user, onLogout }) => {
             <li className="nav-item">
               <NavLink to="/proizvodi" className="nav-link" activeClassName="active">Proizvodi</NavLink>
             </li>
-            {user && user.admin && (
+            {user && user.role=='admin' && (
               <li className="nav-item">
                 <NavLink to="/admin" className="nav-link" activeClassName="active">AdminDashboard</NavLink>
               </li>
