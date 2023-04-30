@@ -57,7 +57,14 @@ const Navbar = ({ user, onLogout }) => {
                 </li>
                 <li className="nav-item">
                 <NavLink to="/proizvodi" className="nav-link" activeClassName="active">Proizvodi</NavLink>
-                </li></>)
+                </li>
+                <li className="nav-item">
+                <NavLink to="/preporuke" className="nav-link" activeClassName="active" end>Nase preporuke</NavLink>
+                </li>
+                
+                
+                
+                </>)
 
             }
           </ul>

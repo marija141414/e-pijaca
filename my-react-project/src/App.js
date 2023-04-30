@@ -14,6 +14,7 @@ import AdminPage from './AdminPage';
 import ProductList from './ProductList';
 import AddProduct from './AddProduct';
 import EditProduct from './EditProduct';
+import NasePreporuke from './NasePreporuke';
 
 function App() {
   const [user, setUser] = useState(null);
@@ -62,6 +63,8 @@ function App() {
         <Navbar user={user} onLogout={handleLogout} />
       <Routes>
         <Route path="/" element={ <Home></Home>}></Route>
+        <Route path="/preporuke" element={ <NasePreporuke></NasePreporuke>}></Route>
+
         <Route path="/proizvodi" element={<Katalog proizvodi={proizvodi}></Katalog>}></Route>
 
         <Route path="/proizvodi/:id" element={ <DetaljiProizvoda proizvodi={proizvodi}></DetaljiProizvoda>}></Route>
