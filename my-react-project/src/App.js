@@ -13,6 +13,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import AdminPage from './AdminPage';
 import ProductList from './ProductList';
 import AddProduct from './AddProduct';
+import EditProduct from './EditProduct';
 
 function App() {
   const [user, setUser] = useState(null);
@@ -43,7 +44,16 @@ function App() {
       products.push(newProduct)
       setProizvodi(products)
     }
-
+    function onUpdate(newProduct){
+      let products = proizvodi;
+      for(var i=0;i<proizvodi.length;i++){
+        if(proizvodi[i].id==newProduct.id){
+          proizvodi[i]=newProduct;
+        }
+      }
+     
+      setProizvodi(products)
+    }
 
 
   return (
@@ -60,6 +70,7 @@ function App() {
         <Route path="/admin" element={ <AdminPage proizvodi={proizvodi}></AdminPage>} ></Route>
         <Route path="/admin/products" element={<ProductList products={proizvodi} setProducts={setProizvodi}></ProductList>}></Route>
         <Route path="/admin/products/add" element={<AddProduct onAdd={onAdd} ></AddProduct>}></Route>
+        <Route path="/admin/products/edit/:id" element={ <EditProduct proizvodi={proizvodi} onUpdate={onUpdate}></EditProduct>}></Route>
  
       </Routes>
      

@@ -1,16 +1,11 @@
 import React from 'react';
 import axios from 'axios';
-
+import { useNavigate } from 'react-router-dom';
 const ProductList = ({ products ,setProducts}) => {
-
-  const updateProduct = async (productId) => {
-    try {
-      const response = await axios.put(`http://127.0.0.1:8000/api/products/${productId}`);
-      // Handle successful update, e.g., show a success message, refresh the table, etc.
-    } catch (error) {
-      console.error('Error updating product:', error);
-    }
-  };
+    const navigate = useNavigate();
+    const updateProduct = (productId) => {
+        navigate(`/admin/products/edit/${productId}`);
+      };
 
   const deleteProduct = async (productId) => {
     try {
@@ -84,7 +79,7 @@ return (
         </thead>
         <tbody>
           {products.map((product, index) => (
-            <tr key={product.id} style={index % 2 === 0 ? trStyles : trAlternateStyles}>
+            <tr key={index} style={index % 2 === 0 ? trStyles : trAlternateStyles}>
               <td style={tdStyles}>{product.id}</td>
               <td style={tdStyles}>{product.name}</td>
               <td style={tdStyles}>{product.description}</td>
@@ -93,7 +88,7 @@ return (
               <td style={tdStyles}>{product.category}</td>
           
               <td style={tdStyles}>
-                <button onClick={() => updateProduct(product.id)} style={updateButtonStyles}>Ažuriraj</button>
+              <button onClick={() => updateProduct(product.id)} style={updateButtonStyles}>Ažuriraj</button>
                 <button onClick={() => deleteProduct(product.id)} style={deleteButtonStyles}>Obriši</button>
               </td>
             </tr>
