@@ -12,6 +12,7 @@ import Navbar from './Navbar';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import AdminPage from './AdminPage';
 import ProductList from './ProductList';
+import AddProduct from './AddProduct';
 
 function App() {
   const [user, setUser] = useState(null);
@@ -37,7 +38,11 @@ function App() {
   }, []);
 
 
-
+    function onAdd(newProduct){
+      let products = proizvodi;
+      products.push(newProduct)
+      setProizvodi(products)
+    }
 
 
 
@@ -54,6 +59,7 @@ function App() {
         <Route path="/register" element={ <Register></Register>}></Route>
         <Route path="/admin" element={ <AdminPage proizvodi={proizvodi}></AdminPage>} ></Route>
         <Route path="/admin/products" element={<ProductList products={proizvodi} setProducts={setProizvodi}></ProductList>}></Route>
+        <Route path="/admin/products/add" element={<AddProduct onAdd={onAdd} ></AddProduct>}></Route>
  
       </Routes>
      
