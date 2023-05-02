@@ -5,7 +5,15 @@ import { useNavigate } from "react-router-dom";
 const Korpa = ({ korpa ,setKorpa}) => {
   const navigate = useNavigate();
 
-  const ukupnaSuma = korpa.reduce((suma, proizvod) => suma + proizvod.price, 0);
+ 
+
+ 
+    var sum=0;
+    for(var i=0;i<korpa.length;i++){
+        sum+=parseFloat(korpa[i].price);
+    }
+ 
+ 
     function vratiNizIdijeva(){
         var niz=[];
         for(var i=0;i<korpa.length;i++){
@@ -37,7 +45,7 @@ const Korpa = ({ korpa ,setKorpa}) => {
   return (
     <div className="korpa">
       <h2>Korpa</h2>
-      {korpa.length === 0 ? (
+      { korpa==null || korpa.length === 0 ? (
         <p>Korpa je prazna.</p>
       ) : (
         korpa.map((proizvod) => (
@@ -48,7 +56,7 @@ const Korpa = ({ korpa ,setKorpa}) => {
           </div>
         ))
       )}
-      <p>Ukupna suma: {ukupnaSuma} RSD</p>
+      <p>Ukupna suma: {sum} RSD</p>
       <button className="dugme-kreiraj" onClick={handleKreirajPorudzbinu}>
         Kreiraj porudžbinu
       </button>
