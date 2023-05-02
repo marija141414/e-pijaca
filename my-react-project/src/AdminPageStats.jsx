@@ -1,6 +1,6 @@
 import React from "react";
 import { Pie } from "react-chartjs-2";
-
+import './AdminPageStats.css'
 const AdminPageStats = ({ proizvodi, narudzbine, ocene }) => {
     console.log(narudzbine)
     console.log(ocene)
@@ -46,9 +46,12 @@ const AdminPageStats = ({ proizvodi, narudzbine, ocene }) => {
       },
     ],
   };
-
+  const pieChartOptions = {
+    maintainAspectRatio: true,
+    aspectRatio: 2, // podešava odnos širine i visine grafikona, 2 je primer vrednosti
+  };
   return (
-    <div>
+     <div className="admin-page-stats">
       <h1>Statistika</h1>
       <h2>Najprodavaniji proizvodi</h2>
       <ul>
@@ -67,7 +70,9 @@ const AdminPageStats = ({ proizvodi, narudzbine, ocene }) => {
         ))}
       </ul>
       <h2>Grafikon najprodavanijih proizvoda</h2>
-      <Pie data={pieChartData} />
+      <div className={"pie-container"}>
+        <Pie data={pieChartData} options={pieChartOptions} />
+      </div>
     </div>
   );
 };
