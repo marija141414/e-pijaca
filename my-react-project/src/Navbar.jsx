@@ -59,6 +59,9 @@ const Navbar = ({ user, onLogout }) => {
                 <NavLink to="/proizvodi" className="nav-link" activeClassName="active">Proizvodi</NavLink>
                 </li>
                 <li className="nav-item">
+                <NavLink to="/korpa" className="nav-link" activeClassName="active">Korpa</NavLink>
+                </li>
+                <li className="nav-item">
                 <NavLink to="/preporuke" className="nav-link" activeClassName="active" end>Nase preporuke</NavLink>
                 </li>
                 

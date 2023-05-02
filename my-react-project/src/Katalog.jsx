@@ -5,7 +5,7 @@ import { useNavigate } from "react-router-dom";
 
 
 
-const Katalog = ({proizvodi}) => {
+const Katalog = ({proizvodi,setKorpa,korpa}) => {
 
   const [prikaziDetalje, setPrikaziDetalje] = useState(false);
   const navigate = useNavigate();
@@ -13,7 +13,16 @@ const Katalog = ({proizvodi}) => {
   const handleDetaljiClick = (id) => {
     navigate(`/proizvodi/${id}`);
   };
-
+  const toggleProizvodUKorpi = (proizvod) => {
+    const proizvodUKorpi = korpa.find((item) => item.id === proizvod.id);
+  
+    if (proizvodUKorpi) {
+      setKorpa(korpa.filter((item) => item.id !== proizvod.id));
+    } else {
+      setKorpa([...korpa, proizvod]);
+    }
+  };
+  
 
   return (
     <div className="katalog">
@@ -27,7 +36,14 @@ const Katalog = ({proizvodi}) => {
           <button className="dugme-katalog" onClick={() => handleDetaljiClick(proizvod.id)}>
               Detalji
             </button>
-      
+            <button
+              className="dugme-katalog"
+              onClick={() => toggleProizvodUKorpi(proizvod)}
+            >
+              {korpa.find((item) => item.id === proizvod.id)
+                ? "Izbaci iz korpe"
+                : "Dodaj u korpu"}
+            </button>
         </div>
       ))}
     </div>

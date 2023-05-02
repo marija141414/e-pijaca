@@ -497,3 +497,52 @@
     font-size: 14px;
   }
   
+
+  .korpa {
+    width: 100%;
+    max-width: 300px;
+    padding: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    background-color: #f8f8f8;
+    margin-top: 1rem;
+  }
+  
+  .korpa h2 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    color: #333;
+  }
+  
+  .korpa-proizvod {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.5rem 0;
+    border-bottom: 1px solid #ccc;
+  }
+  
+  .korpa-proizvod:last-child {
+    border-bottom: none;
+  }
+  
+  .korpa-proizvod img {
+    width: 50px;
+    height: 50px;
+    object-fit: cover;
+    margin-right: 0.5rem;
+  }
+  
+  .korpa-proizvod h3 {
+    font-size: 1rem;
+    margin: 0;
+    color: #333;
+  }
+  
+  .korpa-proizvod .cena {
+    font-size: 0.9rem;
+    font-weight: bold;
+    color: #333;
+  }
+  
