@@ -16,6 +16,7 @@ import AddProduct from './AddProduct';
 import EditProduct from './EditProduct';
 import NasePreporuke from './NasePreporuke';
 import Korpa from './Korpa';
+import Recepti from './Recepti';
 
 function App() {
   const [user, setUser] = useState(null);
@@ -67,6 +68,7 @@ function App() {
         <Route path="/" element={ <Home></Home>}></Route>
         <Route path="/preporuke" element={ <NasePreporuke></NasePreporuke>}></Route>
         <Route path="/korpa" element={ <Korpa korpa={korpa} setKorpa={setKorpa}></Korpa>}></Route>
+        <Route path="/recepti" element={ <Recepti></Recepti>}></Route>
 
         <Route path="/proizvodi" element={<Katalog proizvodi={proizvodi} korpa={korpa} setKorpa={setKorpa}></Katalog>}></Route>
 
