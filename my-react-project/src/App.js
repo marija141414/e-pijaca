@@ -17,11 +17,24 @@ import EditProduct from './EditProduct';
 import NasePreporuke from './NasePreporuke';
 import Korpa from './Korpa';
 import Recepti from './Recepti';
+import AdminPageStats from './AdminPageStats';
 
 function App() {
   const [user, setUser] = useState(null);
   const [korpa, setKorpa] = useState([]);
-
+  const [orders, setOrders] = useState([]);
+  const fetchOrders = async () => {
+    try {
+      const response = await axios.get("http://127.0.0.1:8000/api/orders");
+      console.log(response.data)
+      setOrders(response.data.data);
+    } catch (error) {
+      console.error("Error fetching orders:", error);
+    }
+  };
+  useEffect(() => {
+    fetchOrders();
+  }, []);
   const handleLogin = data => {
     setUser(data);
     console.log("HANDLE LOGIN"+data)
@@ -42,6 +55,17 @@ function App() {
       });
   }, []);
 
+  const [ocene, setOcene] = useState([]);
+  useEffect(() => {
+    axios
+      .get("http://127.0.0.1:8000/api/reviews")
+      .then((response) => {
+        setOcene(response.data.data);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  }, []);
 
     function onAdd(newProduct){
       let products = proizvodi;
@@ -75,9 +99,11 @@ function App() {
         <Route path="/proizvodi/:id" element={ <DetaljiProizvoda proizvodi={proizvodi}></DetaljiProizvoda>}></Route>
         <Route path="/login" element={ <Login onLogin={handleLogin}></Login>}></Route>
         <Route path="/register" element={ <Register></Register>}></Route>
-        <Route path="/admin" element={ <AdminPage proizvodi={proizvodi}></AdminPage>} ></Route>
+        <Route path="/admin" element={ <AdminPage proizvodi={proizvodi} orders={orders}></AdminPage>} ></Route>
         <Route path="/admin/products" element={<ProductList products={proizvodi} setProducts={setProizvodi}></ProductList>}></Route>
         <Route path="/admin/products/add" element={<AddProduct onAdd={onAdd} ></AddProduct>}></Route>
+        <Route path="/admin/stats" element={ <AdminPageStats  ocene={ocene} proizvodi={proizvodi} narudzbine={orders}></AdminPageStats>} ></Route>
+
         <Route path="/admin/products/edit/:id" element={ <EditProduct proizvodi={proizvodi} onUpdate={onUpdate}></EditProduct>}></Route>
  
       </Routes>

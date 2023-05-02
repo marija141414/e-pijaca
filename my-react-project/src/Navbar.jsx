@@ -44,7 +44,10 @@ const Navbar = ({ user, onLogout }) => {
                 <   NavLink to="/admin/products/add" className="nav-link" activeClassName="active">Dodaj</NavLink>            
 
                 </li>
-                
+                <li className="nav-item">
+                <   NavLink to="/admin/stats" className="nav-link" activeClassName="active">Statistike</NavLink>            
+
+                </li>
                 </>
 
 

@@ -4,12 +4,9 @@ import $ from "jquery";
 import "datatables.net-dt";
 import "datatables.net-responsive-dt";
 
-const AdminPage = ({proizvodi}) => {
-  const [orders, setOrders] = useState([]);
+const AdminPage = ({proizvodi,orders}) => {
 
-  useEffect(() => {
-    fetchOrders();
-  }, []);
+
 
   useEffect(() => {
     if (orders.length) {
@@ -17,15 +14,7 @@ const AdminPage = ({proizvodi}) => {
     }
   }, [orders]);
 
-  const fetchOrders = async () => {
-    try {
-      const response = await axios.get("http://127.0.0.1:8000/api/orders");
-      console.log(response.data)
-      setOrders(response.data.data);
-    } catch (error) {
-      console.error("Error fetching orders:", error);
-    }
-  };
+
 
   return (
     <div>
