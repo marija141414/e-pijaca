@@ -46,7 +46,7 @@ Route::post('/register', [AuthController::class, 'register']);
 Route::post('/login', [AuthController::class, 'login']);
 
 Route::group(['middleware' => ['auth:sanctum']], function () {  //obicni ulogovani korisnici
-Route::post('/logout', [AuthController::class, 'logout']);
+    Route::post('/logout', [AuthController::class, 'logout']);
   
 });
 
@@ -54,6 +54,7 @@ Route::post('/logout', [AuthController::class, 'logout']);
 Route::middleware(['auth:sanctum','isAPIAdmin'])->group(function(){ //ako je ulogovan admin
 
     
+    Route::post('/logout', [AuthController::class, 'logout']);
     
 
 });
