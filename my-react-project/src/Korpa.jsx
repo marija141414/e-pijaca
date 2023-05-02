@@ -1,4 +1,40 @@
-const Korpa = ({ korpa }) => (
+import React from "react";
+import axios from "axios";
+import { useNavigate } from "react-router-dom";
+
+const Korpa = ({ korpa ,setKorpa}) => {
+  const navigate = useNavigate();
+
+  const ukupnaSuma = korpa.reduce((suma, proizvod) => suma + proizvod.price, 0);
+    function vratiNizIdijeva(){
+        var niz=[];
+        for(var i=0;i<korpa.length;i++){
+            niz.push(korpa[i].id);
+        }
+        return niz;
+    }
+  const handleKreirajPorudzbinu = async () => {
+    try {
+      const response = await axios.post("http://127.0.0.1:8000/api/orders", {
+        status: "pending",
+        user_id: window.sessionStorage.getItem("auth_id"),
+        items: (vratiNizIdijeva())
+        });
+
+      if (response.status === 200 || response.status === 201) {
+        setKorpa(null);
+        alert("Uspešno ste kreirali porudžbinu!");
+        navigate("/");
+      } else {
+        alert("Došlo je do greške prilikom kreiranja porudžbine.");
+      }
+    } catch (error) {
+      alert("Došlo je do greške prilikom kreiranja porudžbine.");
+      console.error(error);
+    }
+  };
+
+  return (
     <div className="korpa">
       <h2>Korpa</h2>
       {korpa.length === 0 ? (
@@ -12,8 +48,12 @@ const Korpa = ({ korpa }) => (
           </div>
         ))
       )}
+      <p>Ukupna suma: {ukupnaSuma} RSD</p>
+      <button className="dugme-kreiraj" onClick={handleKreirajPorudzbinu}>
+        Kreiraj porudžbinu
+      </button>
     </div>
   );
-  
+};
 
-  export default Korpa;
+export default Korpa;

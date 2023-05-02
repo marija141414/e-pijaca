@@ -66,7 +66,7 @@ function App() {
       <Routes>
         <Route path="/" element={ <Home></Home>}></Route>
         <Route path="/preporuke" element={ <NasePreporuke></NasePreporuke>}></Route>
-        <Route path="/korpa" element={ <Korpa korpa={korpa}></Korpa>}></Route>
+        <Route path="/korpa" element={ <Korpa korpa={korpa} setKorpa={setKorpa}></Korpa>}></Route>
 
         <Route path="/proizvodi" element={<Katalog proizvodi={proizvodi} korpa={korpa} setKorpa={setKorpa}></Katalog>}></Route>
 
