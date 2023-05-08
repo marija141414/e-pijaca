@@ -48,6 +48,10 @@ Route::post('/login', [AuthController::class, 'login']);
 Route::group(['middleware' => ['auth:sanctum']], function () {  //obicni ulogovani korisnici
     Route::post('/logout', [AuthController::class, 'logout']);
   
+
+
+
+    
 });
 
 

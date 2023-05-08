@@ -48,7 +48,7 @@ const DetaljiProizvoda = ({ proizvodi }) => {
       <div className="proizvod-info">
         <div className="proizvod-info-item">
           <span className="label">Kategorija:</span>
-          <span className="value">{proizvod.category.name}</span>
+          <span className="value">{proizvod.category}</span>
         </div>
         <div className="proizvod-info-item">
           <span className="label">Cena:</span>
