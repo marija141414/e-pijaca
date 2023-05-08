@@ -22,6 +22,8 @@ const tableStyles = {
     width: "100%",
     textAlign: "left",
     marginBottom: "20px",
+ 
+
   };
   
   const thStyles = {
